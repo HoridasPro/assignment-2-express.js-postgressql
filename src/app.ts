@@ -1,6 +1,9 @@
 import express from "express";
 const app = express();
 
+// Middle ware
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
