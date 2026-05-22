@@ -5,7 +5,7 @@ export const pool = new Pool({
 });
 
 //  Table create
-export const createTable = async () => {
+export const initDB = async () => {
   try {
     await pool.query(`
       CREATE TABLE IF NOT EXISTS users(
@@ -26,8 +26,8 @@ export const createTable = async () => {
         type VARCHAR(20) NOT NULL,
         status VARCHAR(20) DEFAULT 'open',
         reporter_id INT UNIQUE REFERENCES users(id) ON DELETE CASCADE NOT NULL,
-        created_at TIMESTAMP DEFAULT NOW(),
-        updated_at TIMESTAMP DEFAULT NOW()
+        created_at TIMESTAMPTZ DEFAULT NOW(),
+        updated_at TIMESTAMPTZ DEFAULT NOW()
         )
         `);
     console.log("The table is created successfully");

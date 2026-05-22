@@ -1,9 +1,9 @@
 import app from "./app";
 import config from "./config/env";
-import { createTable } from "./db";
+import { initDB } from "./db";
 
 const main = () => {
-  createTable();
+  initDB();
   app.listen(config.port, () => {
     console.log(`Example app listening on port ${config.port}`);
   });
