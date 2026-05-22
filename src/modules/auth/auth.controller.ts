@@ -5,6 +5,7 @@ import { signupLoginService } from "./auth.service";
 // signup
 const signup = async (req: Request, res: Response) => {
   const result = await signupLoginService.signupFromIntoDB(req.body);
+  console.log("get result", result);
 
   sendResponse(res, {
     message: "User registered successfully",
@@ -17,12 +18,16 @@ const signup = async (req: Request, res: Response) => {
 // login
 const createLogin = async (req: Request, res: Response) => {
   const result = await signupLoginService.loginFromIntoDB(req.body);
+  res.cookie("refreshToken", result.refreshToken);
 
   sendResponse(res, {
     success: true,
     message: "Login successfully",
     status: 200,
-    data: result,
+    data: {
+      token: result.accessToken,
+      user: result.user,
+    },
   });
 };
 

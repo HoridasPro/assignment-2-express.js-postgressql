@@ -1,8 +1,7 @@
 import bcrypt from "bcryptjs";
 import type { IUser } from "./auth.interface";
 import { pool } from "../../db";
-import jwt from "jsonwebtoken";
-import config from "../../config/env";
+import { signToken } from "../../utils/jwt";
 
 // Signup
 const signupFromIntoDB = async (payload: IUser) => {
@@ -42,6 +41,7 @@ const loginFromIntoDB = async (payload: {
   if (userData.rowCount === 0) {
     throw new Error("Invalid Credentials!");
   }
+
   const user = userData.rows[0];
 
   // match password
@@ -56,27 +56,21 @@ const loginFromIntoDB = async (payload: {
     id: user.id,
     name: user.name,
     role: user.role,
+    email: user.email,
   };
 
   // access token
-  const accessToken = jwt.sign(jwtPayload, config.secret_access as string, {
-    expiresIn: "1d",
-  });
+  const { accessToken, refreshToken } = signToken(jwtPayload);
 
-  // refresh token
-  const refreshToken = jwt.sign(jwtPayload, config.secret_refresh as string, {
-    expiresIn: "1d",
-  });
-
-  const { password: _, ...userWithoutPassword } = user;
+  // remove password
+  delete user.password;
 
   return {
-    userWithoutPassword,
+    user,
     accessToken,
     refreshToken,
   };
 };
-
 export const signupLoginService = {
   signupFromIntoDB,
   loginFromIntoDB,

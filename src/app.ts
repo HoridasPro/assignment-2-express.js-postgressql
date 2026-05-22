@@ -17,6 +17,9 @@ app.use(globalErrorHandler);
 // Signup and login
 app.use("/api/auth", authRoute);
 
-// Get all data
+// create all issue
 app.use("/api/issues", issuesRoute);
+
+// // get all issue
+// app.use("/api/issues", issuesRoute);
 export default app;
