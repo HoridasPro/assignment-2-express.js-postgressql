@@ -19,7 +19,4 @@ app.use("/api/auth", authRoute);
 
 // create all issue
 app.use("/api/issues", issuesRoute);
-
-// // get all issue
-// app.use("/api/issues", issuesRoute);
 export default app;

@@ -1,14 +1,14 @@
 import type { NextFunction, Request, Response } from "express";
-import { sendIssueResponse } from "../utils/sendIssueResponse";
 import jwt, { type JwtPayload } from "jsonwebtoken";
 import config from "../config/env";
 import { pool } from "../db";
+import { sendResponse } from "../utils/send.response";
 
 const auth = () => {
   return async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;
     if (!token) {
-      sendIssueResponse(res, {
+      sendResponse(res, {
         success: false,
         message: "token not found",
         status: 401,
@@ -29,7 +29,7 @@ const auth = () => {
     console.log("get user data", userData);
 
     if (userData.rows.length === 0) {
-      sendIssueResponse(res, {
+      sendResponse(res, {
         success: false,
         message: "user not found",
         status: 404,
