@@ -518,3 +518,9 @@ Method => GET - Time => 1779538669291 - URL => /api/issues
 Method => GET - Time => 1779538670970 - URL => /api/issues
 
 Method => GET - Time => 1779538707511 - URL => /api/issues
+
+Method => GET - Time => 1779544554940 - URL => /api/issues?sort=newest
+
+Method => GET - Time => 1779544557265 - URL => /api/issues
+
+Method => GET - Time => 1779544560504 - URL => /api/issues
