@@ -11,7 +11,7 @@ const auth = () => {
     if (!token) {
       return sendResponse(res, {
         success: false,
-        message: "Authentication required. Token missing",
+        message: "Unauthorized access",
         status: 401,
         data: {},
       });

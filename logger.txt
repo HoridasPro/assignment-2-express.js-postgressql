@@ -502,3 +502,19 @@ Method => POST - Time => 1779536926711 - URL => /api/issues
 Method => PUT - Time => 1779536994617 - URL => /api/issues/2
 
 Method => PUT - Time => 1779537018984 - URL => /api/issues/1
+
+Method => GET - Time => 1779538102043 - URL => /api/issues?sort=newest
+
+Method => GET - Time => 1779538226274 - URL => /api/issues/1
+
+Method => POST - Time => 1779538349891 - URL => /api/issues
+
+Method => GET - Time => 1779538610050 - URL => /api/issues
+
+Method => GET - Time => 1779538666621 - URL => /api/issues?sort=newest
+
+Method => GET - Time => 1779538669291 - URL => /api/issues
+
+Method => GET - Time => 1779538670970 - URL => /api/issues
+
+Method => GET - Time => 1779538707511 - URL => /api/issues
