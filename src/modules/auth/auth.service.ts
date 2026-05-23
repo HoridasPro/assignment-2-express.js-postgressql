@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import type { IUser } from "./auth.interface";
+import type { IReturnUser, IUser } from "./auth.interface";
 import { pool } from "../../db";
 import { signToken } from "../../utils/jwt";
 
@@ -18,6 +18,9 @@ const signupFromIntoDB = async (payload: IUser) => {
     [name, email, hashPassword, role],
   );
 
+  if (!result.rows[0]) {
+    throw new Error("User not created");
+  }
   const { password: _, ...userWithoutPassword } = result.rows[0];
 
   return userWithoutPassword;
@@ -50,19 +53,13 @@ const loginFromIntoDB = async (payload: {
   if (!matchPassword) {
     throw new Error("Invalid Credentials!");
   }
-
-  // jwt payload
-  const jwtPayload = {
+  const jwtPayload: IReturnUser = {
     id: user.id,
     name: user.name,
     role: user.role,
     email: user.email,
   };
-
-  // access token
   const { accessToken, refreshToken } = signToken(jwtPayload);
-
-  // remove password
   delete user.password;
 
   return {

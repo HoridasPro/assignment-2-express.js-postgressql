@@ -194,3 +194,133 @@ Method => PUT - Time => 1779512559075 - URL => /api/issues/18
 Method => PUT - Time => 1779512629645 - URL => /api/issues/18
 
 Method => PUT - Time => 1779512686188 - URL => /api/issues/19
+
+Method => GET - Time => 1779514727333 - URL => /favicon.ico
+
+Method => DELETE - Time => 1779514764009 - URL => /api/issues/19
+
+Method => POST - Time => 1779514803211 - URL => /api/auth/login
+
+Method => DELETE - Time => 1779514855523 - URL => /api/issues/19
+
+Method => DELETE - Time => 1779514932660 - URL => /api/issues/22
+
+Method => DELETE - Time => 1779515097147 - URL => /api/issues/22
+
+Method => DELETE - Time => 1779516143107 - URL => /api/issues/22
+
+Method => DELETE - Time => 1779516320657 - URL => /api/issues/22
+
+Method => DELETE - Time => 1779516516215 - URL => /api/issues/22
+
+Method => POST - Time => 1779516556989 - URL => /api/auth/login
+
+Method => DELETE - Time => 1779516596924 - URL => /api/issues/19
+
+Method => DELETE - Time => 1779516636683 - URL => /api/issues/19
+
+Method => DELETE - Time => 1779516728976 - URL => /api/issues/19
+
+Method => DELETE - Time => 1779516837575 - URL => /api/issues/20
+
+Method => DELETE - Time => 1779516842443 - URL => /api/issues/23
+
+Method => DELETE - Time => 1779516866046 - URL => /api/issues/19
+
+Method => DELETE - Time => 1779516935843 - URL => /api/auth/login
+
+Method => POST - Time => 1779516941130 - URL => /api/auth/login
+
+Method => DELETE - Time => 1779516979147 - URL => /api/issues/19
+
+Method => DELETE - Time => 1779516994547 - URL => /api/issues/20
+
+Method => DELETE - Time => 1779517018614 - URL => /api/issues/18
+
+Method => POST - Time => 1779517100936 - URL => /api/login
+
+Method => POST - Time => 1779517114368 - URL => /api/auth/login
+
+Method => DELETE - Time => 1779517141300 - URL => /api/issues/18
+
+Method => DELETE - Time => 1779517245568 - URL => /api/issues/19
+
+Method => POST - Time => 1779520403038 - URL => /api/auth/signup
+
+Method => POST - Time => 1779520427486 - URL => /api/auth/signup
+
+Method => POST - Time => 1779520533749 - URL => /api/auth/signup
+
+Method => POST - Time => 1779520557198 - URL => /api/auth/signu
+
+Method => POST - Time => 1779520574788 - URL => /api/auth/signup
+
+Method => POST - Time => 1779520724524 - URL => /api/auth/signup
+
+Method => POST - Time => 1779520804352 - URL => /api/auth/signup
+
+Method => POST - Time => 1779521077323 - URL => /api/auth/signup
+
+Method => POST - Time => 1779521873905 - URL => /api/auth/signup
+
+Method => POST - Time => 1779521891478 - URL => /api/auth/signup
+
+Method => POST - Time => 1779522272004 - URL => /api/auth/signup
+
+Method => POST - Time => 1779522383730 - URL => /api/auth/signup
+
+Method => POST - Time => 1779523087234 - URL => /api/auth/signup
+
+Method => POST - Time => 1779523127039 - URL => /api/auth/signup
+
+Method => GET - Time => 1779524332890 - URL => /api/issues
+
+Method => GET - Time => 1779524374411 - URL => /api/issues/20
+
+Method => POST - Time => 1779524473807 - URL => /api/auth/signup
+
+Method => POST - Time => 1779524496074 - URL => /api/auth/signup
+
+Method => POST - Time => 1779524537857 - URL => /api/auth/login
+
+Method => POST - Time => 1779524621098 - URL => /api/issues
+
+Method => GET - Time => 1779524694130 - URL => /api/issues
+
+Method => GET - Time => 1779524732107 - URL => /api/issues/20
+
+Method => PUT - Time => 1779524753697 - URL => /api/issues/20
+
+Method => POST - Time => 1779524876282 - URL => /api/auth/login
+
+Method => PUT - Time => 1779525047082 - URL => /api/issues/22
+
+Method => POST - Time => 1779525192699 - URL => /api/auth/login
+
+Method => PUT - Time => 1779525268186 - URL => /api/issues/22
+
+Method => DELETE - Time => 1779525307177 - URL => /api/issues/22
+
+Method => DELETE - Time => 1779525354401 - URL => /api/issues/23
+
+Method => DELETE - Time => 1779526121376 - URL => /api/issues/23
+
+Method => DELETE - Time => 1779526148312 - URL => /api/issues/20
+
+Method => DELETE - Time => 1779526315264 - URL => /api/issues/20
+
+Method => DELETE - Time => 1779526325984 - URL => /api/issues/21
+
+Method => DELETE - Time => 1779526349267 - URL => /api/issues/21
+
+Method => POST - Time => 1779526370453 - URL => /api/issues
+
+Method => DELETE - Time => 1779526391340 - URL => /api/issues/24
+
+Method => POST - Time => 1779526407540 - URL => /api/issues
+
+Method => POST - Time => 1779526468252 - URL => /api/auth/login
+
+Method => DELETE - Time => 1779526502940 - URL => /api/issues/25
+
+Method => PUT - Time => 1779526678286 - URL => /api/issues/25

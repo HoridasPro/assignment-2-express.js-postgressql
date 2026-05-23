@@ -7,7 +7,7 @@ import asyncHandler from "./../../utils/asyncHandler";
 const signup = asyncHandler(async (req: Request, res: Response) => {
   const result = await signupLoginService.signupFromIntoDB(req.body);
 
-  sendResponse(res, {
+  return sendResponse(res, {
     message: "User registered successfully",
     success: true,
     status: 201,

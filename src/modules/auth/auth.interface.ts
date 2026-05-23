@@ -9,6 +9,12 @@ export interface IUser {
 export interface IReturnUser {
   id: number;
   name: string;
-  role: string;
+  role: string
   email: string;
+}
+export interface IReturn {
+  name: string;
+  email: string;
+  password: string;
+  role: (typeof roles)[number];
 }

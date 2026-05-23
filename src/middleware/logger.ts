@@ -1,4 +1,3 @@
-import { lookup } from "dns";
 import type { NextFunction, Request, Response } from "express";
 import fs from "fs";
 

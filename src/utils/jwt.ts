@@ -1,5 +1,5 @@
 import config from "../config/env";
-import type { IReturnUser, IUser } from "../modules/auth/auth.interface";
+import type { IReturnUser } from "../modules/auth/auth.interface";
 import jwt from "jsonwebtoken";
 
 export const signToken = (payload: IReturnUser) => {

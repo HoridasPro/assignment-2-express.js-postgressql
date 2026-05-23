@@ -1,7 +1,5 @@
 import { pool } from "../../db";
-import type { IIssue, IIssues } from "./issue.interfae";
-import asyncHandler from "./../../utils/asyncHandler";
-import type { IReturnUser } from "../auth/auth.interface";
+import type { IIssue } from "./issue.interfae";
 
 const createIssueFromIntoDB = async (payload: IIssue) => {
   const { reporter_id, title, description, type } = payload;
@@ -51,24 +49,19 @@ const getAllIssuesFromBD = async (query: any) => {
   const values: any[] = [];
   const conditions: string[] = [];
 
-  // ✅ filter by type
   if (type) {
     values.push(type);
     conditions.push(`type = $${values.length}`);
   }
 
-  // ✅ filter by status
   if (status) {
     values.push(status);
     conditions.push(`status = $${values.length}`);
   }
-
-  // ✅ add WHERE condition
   if (conditions.length > 0) {
     baseQuery += " WHERE " + conditions.join(" AND ");
   }
 
-  // ✅ sorting
   baseQuery +=
     sort === "oldest"
       ? " ORDER BY created_at ASC"
@@ -78,7 +71,6 @@ const getAllIssuesFromBD = async (query: any) => {
 
   const issues = result.rows;
 
-  // ✅ attach reporter info
   const finalData = [];
 
   for (const issue of issues) {
@@ -103,9 +95,7 @@ const getAllIssuesFromBD = async (query: any) => {
 };
 
 // get single ussue
-
 const getSingleIssueFromDB = async (id: number) => {
-  // 1. get issue
   const issueResult = await pool.query(`SELECT * FROM issues WHERE id = $1`, [
     id,
   ]);
@@ -116,7 +106,6 @@ const getSingleIssueFromDB = async (id: number) => {
 
   const issue = issueResult.rows[0];
 
-  // 2. get reporter (NO JOIN)
   const userResult = await pool.query(
     `SELECT id, name, role FROM users WHERE id = $1`,
     [issue.reporter_id],
@@ -124,7 +113,6 @@ const getSingleIssueFromDB = async (id: number) => {
 
   const reporter = userResult.rows[0] || null;
 
-  // 3. final response shape
   return {
     id: issue.id,
     title: issue.title,
@@ -139,77 +127,9 @@ const getSingleIssueFromDB = async (id: number) => {
 
 // Update issue
 
-// const updateIssueFromDB = asyncHandler(
-//   async (payload: IIssues, user: IReturnUser) => {
-//     const { title, description, type, status, id } = payload;
-
-//     // 1. check issue exists
-//     const issueResult = await pool.query(`SELECT * FROM issues WHERE id = $1`, [
-//       id,
-//     ]);
-//     console.log("issue result", issueResult);
-
-//     if (issueResult.rowCount === 0) {
-//       throw new Error("Issue not found");
-//     }
-
-//     const issue = issueResult.rows[0];
-
-//     // Maintainer -> can update any issue
-//     if (user.role === "maintainer") {
-//       const result = await pool.query(
-//         `
-//       UPDATE issues
-//       SET
-//         title = COALESCE($1, title),
-//         description = COALESCE($2, description),
-//         type = COALESCE($3, type),
-//         status = COALESCE($4, status),
-//         updated_at = NOW()
-//       WHERE id = $5
-//       RETURNING *
-//       `,
-//         [title, description, type, status, id],
-//       );
-
-//       return result.rows[0];
-//     }
-
-//     if (
-//       user.role === "contributor" &&
-//       issue.reporter_id === user.id &&
-//       issue.status === "open"
-//     ) {
-//       const result = await pool.query(
-//         `
-//       UPDATE issues
-//       SET
-//         title = COALESCE($1, title),
-//         description = COALESCE($2, description),
-//         type = COALESCE($3, type),
-//         status = COALESCE($4, status),
-//         updated_at = NOW()
-//       WHERE id = $5
-//       RETURNING *
-//       `,
-//         [title, description, type, status, id],
-//       );
-
-//       return result.rows[0];
-//     }
-
-//     throw new Error("You are not authorized to update this issue");
-//   },
-// );
-
-const updateIssueFromDB = async (
-  id: number,
-  payload: any,
-  user: any, // JWT user
-) => {
+const updateIssueFromDB = async (id: number, payload: any, user: any) => {
   const { title, description, type } = payload;
 
-  // 1. get issue
   const issueResult = await pool.query(`SELECT * FROM issues WHERE id = $1`, [
     id,
   ]);
@@ -235,7 +155,6 @@ const updateIssueFromDB = async (
     }
   }
 
-  // 3. update issue
   const result = await pool.query(
     `
     UPDATE issues
@@ -253,9 +172,27 @@ const updateIssueFromDB = async (
   return result.rows[0];
 };
 
+export const deleteDataFromDB = async (id: number, user: any) => {
+  if (user.role !== "maintainer") {
+    throw new Error("Only maintainers can delete issues");
+  }
+
+  // check issue exists
+  const issue = await pool.query(`SELECT * FROM issues WHERE id = $1`, [id]);
+
+  if (issue.rowCount === 0) {
+    throw new Error("Issue not found");
+  }
+
+  // delete issue (maintainer can delete ANY issue)
+  await pool.query(`DELETE FROM issues WHERE id = $1`, [id]);
+
+  return;
+};
 export const issueService = {
   createIssueFromIntoDB,
   getAllIssuesFromBD,
   getSingleIssueFromDB,
   updateIssueFromDB,
+  deleteDataFromDB,
 };
