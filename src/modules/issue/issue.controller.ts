@@ -2,8 +2,9 @@ import type { Request, Response } from "express";
 
 import { issueService } from "./issue.service";
 import { sendResponse } from "../../utils/send.response";
+import asyncHandler from "../../utils/asyncHandler";
 
-const createIssue = async (req: Request, res: Response) => {
+const createIssue = asyncHandler(async (req: Request, res: Response) => {
   // JWT middleware থেকে আসবে
   const reporter_id = req.user?.id;
 
@@ -27,31 +28,16 @@ const createIssue = async (req: Request, res: Response) => {
     status: 201,
     data: result,
   });
-};
+});
 
-// const getAllIssues = async (req: Request, res: Response) => {
-//   try {
-//     const result = await issueService.getAllIssuesFromBD();
-
-//     return res.status(200).json({
-//       success: true,
-//       data: result,
-//     });
-//   } catch (error) {
-//     return res.status(500).json({
-//       success: false,
-//       message: (error as Error).message,
-//     });
-//   }
-// };
-
-const getAllIssues = async (req: Request, res: Response) => {
+//  get all issues
+const getAllIssues = asyncHandler(async (req: Request, res: Response) => {
   try {
     const result = await issueService.getAllIssuesFromBD(req.query);
 
     return res.status(200).json({
       success: true,
-      data: result, // ✅ array
+      data: result,
     });
   } catch (error) {
     return res.status(500).json({
@@ -59,11 +45,11 @@ const getAllIssues = async (req: Request, res: Response) => {
       message: (error as Error).message,
     });
   }
-};
+});
 
 // get single issue
 
-const getSingleIssue = async (req: Request, res: Response) => {
+const getSingleIssue = asyncHandler(async (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
 
@@ -79,6 +65,28 @@ const getSingleIssue = async (req: Request, res: Response) => {
       message: (error as Error).message,
     });
   }
-};
+});
 
-export const issuesController = { createIssue, getAllIssues, getSingleIssue };
+// Update issue
+
+const updateIssue = asyncHandler(async (req: Request, res: Response) => {
+  const id = Number(req.params.id);
+
+  const user = req.user; // JWT middleware
+
+  const result = await issueService.updateIssueFromDB(id, req.body, user);
+
+  return sendResponse(res, {
+    success: true,
+    message: "Issue updated successfully",
+    status: 200,
+    data: result,
+  });
+});
+
+export const issuesController = {
+  createIssue,
+  getAllIssues,
+  getSingleIssue,
+  updateIssue,
+};

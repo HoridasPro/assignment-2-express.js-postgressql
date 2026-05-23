@@ -1,9 +1,10 @@
 import type { Request, Response } from "express";
 import { sendResponse } from "../../utils/send.response";
 import { signupLoginService } from "./auth.service";
+import asyncHandler from "./../../utils/asyncHandler";
 
 // signup
-const signup = async (req: Request, res: Response) => {
+const signup = asyncHandler(async (req: Request, res: Response) => {
   const result = await signupLoginService.signupFromIntoDB(req.body);
 
   sendResponse(res, {
@@ -12,10 +13,10 @@ const signup = async (req: Request, res: Response) => {
     status: 201,
     data: result,
   });
-};
+});
 
 // login
-const createLogin = async (req: Request, res: Response) => {
+const createLogin = asyncHandler(async (req: Request, res: Response) => {
   const result = await signupLoginService.loginFromIntoDB(req.body);
   res.cookie("refreshToken", result.refreshToken);
 
@@ -28,7 +29,7 @@ const createLogin = async (req: Request, res: Response) => {
       user: result.user,
     },
   });
-};
+});
 
 export const signupLoginControll = {
   signup,

@@ -3,6 +3,7 @@ import { userRoute as authRoute } from "./modules/auth/auth.route";
 import globalErrorHandler from "./middleware/error.handle";
 
 import { issuesRoute } from "./modules/issue/issue.route";
+import logger from "./middleware/logger";
 const app = express();
 
 // Middle ware
@@ -11,6 +12,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+app.use(logger);
 
 app.use(globalErrorHandler);
 

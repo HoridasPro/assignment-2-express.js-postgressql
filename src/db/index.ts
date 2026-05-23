@@ -4,7 +4,7 @@ export const pool = new Pool({
   connectionString: config.connection_string,
 });
 
-//  Table create
+// Create table for the users
 export const initDB = async () => {
   try {
     await pool.query(`
@@ -18,6 +18,8 @@ export const initDB = async () => {
       updated_at TIMESTAMP DEFAULT NOW()
       )
       `);
+
+    // Create table for the issues
     await pool.query(`
         CREATE TABLE IF NOT EXISTS issues(
         id SERIAL UNIQUE PRIMARY KEY,

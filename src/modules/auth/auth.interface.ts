@@ -7,7 +7,7 @@ export interface IUser {
 }
 
 export interface IReturnUser {
-  id: string;
+  id: number;
   name: string;
   role: string;
   email: string;
