@@ -50,21 +50,14 @@ const getAllIssues = asyncHandler(async (req: Request, res: Response) => {
 // get single issue
 
 const getSingleIssue = asyncHandler(async (req: Request, res: Response) => {
-  try {
-    const id = Number(req.params.id);
+  const id = Number(req.params.id);
 
-    const result = await issueService.getSingleIssueFromDB(id);
+  const result = await issueService.getSingleIssueFromDB(id);
 
-    return res.status(200).json({
-      success: true,
-      data: result, // ✅ object
-    });
-  } catch (error) {
-    return res.status(404).json({
-      success: false,
-      message: (error as Error).message,
-    });
-  }
+  res.status(200).json({
+    success: true,
+    data: result,
+  });
 });
 
 // Update issue
@@ -72,10 +65,12 @@ const getSingleIssue = asyncHandler(async (req: Request, res: Response) => {
 const updateIssue = asyncHandler(async (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
-  const user = req.user; // JWT middleware
+  const user = req.user;
 
   const result = await issueService.updateIssueFromDB(id, req.body, user);
-
+  if (!result) {
+    throw new Error("Issue not found or update failed");
+  }
   return sendResponse(res, {
     success: true,
     message: "Issue updated successfully",
@@ -91,12 +86,12 @@ export const deleteIssueData = asyncHandler(
     const id = Number(req.params.id);
 
     const result = await issueService.deleteDataFromDB(id, req.user);
-
-    return sendResponse(res, {
+    if (!result) {
+      throw new Error("Issue not found or already deleted");
+    }
+    res.status(200).json({
       success: true,
       message: "Issue deleted successfully",
-      status: 200,
-      data: result,
     });
   },
 );

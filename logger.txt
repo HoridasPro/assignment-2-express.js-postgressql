@@ -324,3 +324,121 @@ Method => POST - Time => 1779526468252 - URL => /api/auth/login
 Method => DELETE - Time => 1779526502940 - URL => /api/issues/25
 
 Method => PUT - Time => 1779526678286 - URL => /api/issues/25
+
+Method => GET - Time => 1779526995098 - URL => /api/issues?sort=newest
+
+Method => POST - Time => 1779527138452 - URL => /api/issues
+
+Method => POST - Time => 1779527146757 - URL => /api/issues
+
+Method => GET - Time => 1779527155241 - URL => /api/issues?sort=newest
+
+Method => GET - Time => 1779527177762 - URL => /api/issues?sort=oldest
+
+Method => GET - Time => 1779527200648 - URL => /api/issues?type=open
+
+Method => GET - Time => 1779527227823 - URL => /api/issues?type=bug
+
+Method => GET - Time => 1779527256131 - URL => /api/issues?type=feature_request
+
+Method => GET - Time => 1779527301233 - URL => /api/issues?status=open
+
+Method => GET - Time => 1779527337856 - URL => /api/issues?status=in_progress
+
+Method => GET - Time => 1779527367865 - URL => /api/issues?status=resolved
+
+Method => POST - Time => 1779527832683 - URL => /api/issues
+
+Method => PUT - Time => 1779527843414 - URL => /api/issues
+
+Method => DELETE - Time => 1779528816471 - URL => /api/issues/15
+
+Method => POST - Time => 1779528924072 - URL => /api/auth/login
+
+Method => DELETE - Time => 1779528957296 - URL => /api/issues/19
+
+Method => DELETE - Time => 1779528996447 - URL => /api/issues/25
+
+Method => DELETE - Time => 1779529049548 - URL => /api/issues/26
+
+Method => POST - Time => 1779529138763 - URL => /api/auth/login
+
+Method => DELETE - Time => 1779529169857 - URL => /api/issues/27
+
+Method => DELETE - Time => 1779529186335 - URL => /api/issues/23
+
+Method => PUT - Time => 1779529321818 - URL => /api/issues27
+
+Method => PUT - Time => 1779529475127 - URL => /api/issues27
+
+Method => PUT - Time => 1779529589860 - URL => /api/issues/27
+
+Method => PUT - Time => 1779529625886 - URL => /api/issues/27
+
+Method => PUT - Time => 1779529669381 - URL => /api/issues/21
+
+Method => PUT - Time => 1779529691590 - URL => /api/issues/21
+
+Method => PUT - Time => 1779529706925 - URL => /api/issues/27
+
+Method => PUT - Time => 1779530141452 - URL => /api/issues/27
+
+Method => PUT - Time => 1779530233805 - URL => /api/issues/27
+
+Method => PUT - Time => 1779530298123 - URL => /api/issues/27
+
+Method => DELETE - Time => 1779530352777 - URL => /api/issues/27
+
+Method => DELETE - Time => 1779530365294 - URL => /api/issues/27
+
+Method => DELETE - Time => 1779530554751 - URL => /api/issues/27
+
+Method => DELETE - Time => 1779530663197 - URL => /api/issues/27
+
+Method => DELETE - Time => 1779530730503 - URL => /api/issues/27
+
+Method => DELETE - Time => 1779530780482 - URL => /api/issues/27
+
+Method => DELETE - Time => 1779530802233 - URL => /api/issues/28
+
+Method => POST - Time => 1779531083792 - URL => /api/issues
+
+Method => POST - Time => 1779531088299 - URL => /api/issues
+
+Method => POST - Time => 1779531089029 - URL => /api/issues
+
+Method => POST - Time => 1779531090074 - URL => /api/issues
+
+Method => POST - Time => 1779531090639 - URL => /api/issues
+
+Method => DELETE - Time => 1779531114030 - URL => /api/issues/29
+
+Method => GET - Time => 1779531303986 - URL => /api/issues
+
+Method => GET - Time => 1779531339578 - URL => /api/issues/29
+
+Method => GET - Time => 1779531388582 - URL => /api/issues/30
+
+Method => GET - Time => 1779531602578 - URL => /api/issues/30
+
+Method => GET - Time => 1779531619824 - URL => /api/issues/30
+
+Method => GET - Time => 1779531642555 - URL => /api/issues/306
+
+Method => GET - Time => 1779531650529 - URL => /api/issues
+
+Method => GET - Time => 1779531682746 - URL => /api/issues/30
+
+Method => GET - Time => 1779531690249 - URL => /api/issues
+
+Method => GET - Time => 1779531717971 - URL => /api/issues/343
+
+Method => PUT - Time => 1779531746943 - URL => /api/issues/343
+
+Method => POST - Time => 1779531944182 - URL => /api/auth/signup
+
+Method => POST - Time => 1779532009220 - URL => /api/auth/signup
+
+Method => POST - Time => 1779532160304 - URL => /api/auth/signup
+
+Method => POST - Time => 1779532292360 - URL => /api/auth/signup

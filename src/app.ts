@@ -14,11 +14,10 @@ app.get("/", (req, res) => {
 });
 app.use(logger);
 
-app.use(globalErrorHandler);
-
 // Signup and login
 app.use("/api/auth", authRoute);
 
 // create all issue
 app.use("/api/issues", issuesRoute);
+app.use(globalErrorHandler);
 export default app;

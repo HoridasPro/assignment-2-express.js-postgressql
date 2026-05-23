@@ -177,17 +177,15 @@ export const deleteDataFromDB = async (id: number, user: any) => {
     throw new Error("Only maintainers can delete issues");
   }
 
-  // check issue exists
   const issue = await pool.query(`SELECT * FROM issues WHERE id = $1`, [id]);
 
   if (issue.rowCount === 0) {
     throw new Error("Issue not found");
   }
 
-  // delete issue (maintainer can delete ANY issue)
   await pool.query(`DELETE FROM issues WHERE id = $1`, [id]);
 
-  return;
+  return issue;
 };
 export const issueService = {
   createIssueFromIntoDB,

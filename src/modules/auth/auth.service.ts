@@ -7,23 +7,32 @@ import { signToken } from "../../utils/jwt";
 const signupFromIntoDB = async (payload: IUser) => {
   const { name, email, password, role } = payload;
 
-  const hashPassword = await bcrypt.hash(password, 10);
+  try {
+    const hashPassword = await bcrypt.hash(password, 10);
 
-  const result = await pool.query(
-    `
-    INSERT INTO users(name, email, password, role)
-    VALUES($1, $2, $3, $4)
-    RETURNING *
-    `,
-    [name, email, hashPassword, role],
-  );
+    const result = await pool.query(
+      `
+      INSERT INTO users(name, email, password, role)
+      VALUES($1, $2, $3, $4)
+      RETURNING *
+      `,
+      [name, email, hashPassword, role],
+    );
 
-  if (!result.rows[0]) {
-    throw new Error("User not created");
+    if (!result.rows[0]) {
+      throw new Error("User not created");
+    }
+
+    const { password: _, ...userWithoutPassword } = result.rows[0];
+
+    return userWithoutPassword;
+  } catch (error: any) {
+    if (error.code === "23505") {
+      throw new Error("Email already exists");
+    }
+
+    throw new Error(error.message || "Database error occurred");
   }
-  const { password: _, ...userWithoutPassword } = result.rows[0];
-
-  return userWithoutPassword;
 };
 
 // Login
