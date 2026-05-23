@@ -1,6 +1,7 @@
 import { pool } from "../../db";
 import type { IIssue } from "./issue.interfae";
 
+// Create Issue
 const createIssueFromIntoDB = async (payload: IIssue) => {
   const { reporter_id, title, description, type } = payload;
 
@@ -24,13 +25,15 @@ const createIssueFromIntoDB = async (payload: IIssue) => {
   return result.rows[0];
 };
 
-// get all issues
+// Get all issues
 const getAllIssuesFromBD = async (query: any) => {
   const { sort = "newest", type, status } = query;
 
   const allowedSort = ["newest", "oldest"];
   const allowedType = ["bug", "feature_request"];
   const allowedStatus = ["open", "in_progress", "resolved"];
+  
+    
 
   if (sort && !allowedSort.includes(sort)) {
     throw new Error("Invalid sort value");

@@ -10,6 +10,4 @@ export interface IIssues {
   description: string;
   type: "bug" | "feature_request";
   status: number;
-   
 }
- 

@@ -1,11 +1,9 @@
 import type { Request, Response } from "express";
-
 import { issueService } from "./issue.service";
 import { sendResponse } from "../../utils/send.response";
 import asyncHandler from "../../utils/asyncHandler";
 
 const createIssue = asyncHandler(async (req: Request, res: Response) => {
-  // JWT middleware থেকে আসবে
   const reporter_id = req.user?.id;
 
   if (!reporter_id) {

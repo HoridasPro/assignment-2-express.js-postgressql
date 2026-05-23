@@ -442,3 +442,63 @@ Method => POST - Time => 1779532009220 - URL => /api/auth/signup
 Method => POST - Time => 1779532160304 - URL => /api/auth/signup
 
 Method => POST - Time => 1779532292360 - URL => /api/auth/signup
+
+Method => GET - Time => 1779532486670 - URL => /api/issues?sort=newest
+
+Method => GET - Time => 1779532490844 - URL => /api/issues?sort=newest
+
+Method => GET - Time => 1779532514856 - URL => /api/issues?sort=oldest
+
+Method => GET - Time => 1779532544058 - URL => /api/issues?%20type=bug
+
+Method => GET - Time => 1779532565665 - URL => /api/issues?%20type=feature_request
+
+Method => GET - Time => 1779532598530 - URL => /api/issues?%20type=feature_request
+
+Method => GET - Time => 1779532621885 - URL => /api/issues?sort=newest
+
+Method => GET - Time => 1779532626569 - URL => /api/issues?sort=newest
+
+Method => GET - Time => 1779532651283 - URL => /api/issues?type=feature_request
+
+Method => POST - Time => 1779534825415 - URL => /api/auth/login
+
+Method => POST - Time => 1779534832848 - URL => /api/auth/login
+
+Method => POST - Time => 1779534837799 - URL => /api/auth/login
+
+Method => POST - Time => 1779534860376 - URL => /api/auth/login9
+
+Method => POST - Time => 1779534867312 - URL => /api/auth/login
+
+Method => POST - Time => 1779534896947 - URL => /api/auth/signup
+
+Method => POST - Time => 1779534997317 - URL => /api/auth/signup
+
+Method => POST - Time => 1779535020732 - URL => /api/auth/signup
+
+Method => POST - Time => 1779536501885 - URL => /api/auth/signup
+
+Method => POST - Time => 1779536535793 - URL => /api/auth/signup
+
+Method => POST - Time => 1779536539355 - URL => /api/auth/signup
+
+Method => POST - Time => 1779536556201 - URL => /api/auth/signup
+
+Method => POST - Time => 1779536561496 - URL => /api/auth/signup
+
+Method => POST - Time => 1779536613071 - URL => /api/auth/login
+
+Method => POST - Time => 1779536681343 - URL => /api/auth/login
+
+Method => POST - Time => 1779536703095 - URL => /api/i
+
+Method => POST - Time => 1779536723703 - URL => /api/issues
+
+Method => POST - Time => 1779536814706 - URL => /api/issues
+
+Method => POST - Time => 1779536926711 - URL => /api/issues
+
+Method => PUT - Time => 1779536994617 - URL => /api/issues/2
+
+Method => PUT - Time => 1779537018984 - URL => /api/issues/1
