@@ -524,3 +524,25 @@ Method => GET - Time => 1779544554940 - URL => /api/issues?sort=newest
 Method => GET - Time => 1779544557265 - URL => /api/issues
 
 Method => GET - Time => 1779544560504 - URL => /api/issues
+
+Method => GET - Time => 1780556404658 - URL => /favicon.ico
+
+Method => PATCH - Time => 1780556422425 - URL => //api/issues/1
+
+Method => GET - Time => 1780556440058 - URL => //api/issues
+
+Method => GET - Time => 1780556441975 - URL => //api/issues
+
+Method => POST - Time => 1780556482279 - URL => //api/auth/login
+
+Method => POST - Time => 1780556494896 - URL => /api/auth/login
+
+Method => PATCH - Time => 1780556539055 - URL => /api/issues/1
+
+Method => GET - Time => 1780556552512 - URL => /api/issues/1
+
+Method => GET - Time => 1780556573162 - URL => /api/issues
+
+Method => PATCH - Time => 1780556587736 - URL => /api/issues/1
+
+Method => PATCH - Time => 1780556812651 - URL => /api/issues/1
